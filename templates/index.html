@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeShuttle | Premium Airport Transfer</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="ph-fill ph-van"></i>
+            <span>VibeShuttle</span>
+        </div>
+        <!-- Removed phone number -->
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            
+            <div class="hero-text">
+                <h2 class="locations">City Center / Suburbs / Coastal</h2>
+                <h1 class="main-title">AIRPORT SHUTTLE <i class="ph-fill ph-airplane-tilt"></i></h1>
+                <p class="subtitle">COMFORTABLE • RELIABLE • ON TIME</p>
+                
+                <div class="price-badge">
+                    <div class="price-info">
+                        <span class="only-for">ONLY FOR</span>
+                        <span class="price">10€</span>
+                        <span class="luggage">LUGGAGE INCLUDED</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Card -->
+            <div class="booking-card">
+                <h3>Book Your Transfer</h3>
+                <p>Direct transfer to the Main Airport</p>
+                
+                <form id="bookingForm">
+                    <div class="input-group">
+                        <label><i class="ph ph-user"></i> Full Name</label>
+                        <input type="text" id="name" required placeholder="John Doe">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label><i class="ph ph-phone"></i> Phone / WhatsApp</label>
+                        <input type="tel" id="phone" required placeholder="+212 600 000000">
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <label><i class="ph ph-map-pin"></i> Pick-up</label>
+                            <select id="pickup" required>
+                                <option value="" disabled selected>Select location</option>
+                                <option value="City Center">City Center</option>
+                                <option value="Suburbs">Suburbs</option>
+                                <option value="Coastal Area">Coastal Area</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label><i class="ph ph-airplane"></i> Drop-off</label>
+                            <select id="dropoff" required>
+                                <option value="Main Airport" selected>Main Airport</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <label><i class="ph ph-calendar"></i> Date</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="input-group">
+                            <label><i class="ph ph-clock"></i> Time</label>
+                            <select id="time" required>
+                                <option value="" disabled selected>Select time</option>
+                                <option value="06h00">06h00</option>
+                                <option value="08h00">08h00</option>
+                                <option value="10h00">10h00</option>
+                                <option value="12h00">12h00</option>
+                                <option value="14h00">14h00</option>
+                                <option value="16h00">16h00</option>
+                                <option value="18h00">18h00</option>
+                                <option value="20h00">20h00</option>
+                                <option value="22h00">22h00</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="ph ph-users"></i> Passengers</label>
+                        <input type="number" id="passengers" min="1" max="8" value="1" required>
+                    </div>
+                    
+                    <div class="total-price-display">
+                        Total: <span id="totalPriceCalc">10€</span>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <span>Confirm Booking</span>
+                        <i class="ph-bold ph-arrow-right"></i>
+                    </button>
+                </form>
+                
+                <div id="formMessage" class="form-message hidden"></div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature-item">
+            <div class="feature-icon"><i class="ph-fill ph-clock-countdown"></i></div>
+            <h4>Daily Shuttle Service</h4>
+            <p>Every 2 hours (06h00 - 22h00)</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon"><i class="ph-fill ph-armchair"></i></div>
+            <h4>Comfortable Seats</h4>
+            <p>Modern, air-conditioned vans</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon"><i class="ph-fill ph-suitcase-rolling"></i></div>
+            <h4>Luggage Included</h4>
+            <p>No extra fees for bags</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 VibeShuttle. All Rights Reserved.</p>
+        <p><i class="ph-fill ph-globe"></i> www.super-generic-shuttle-rides.xyz</p>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
