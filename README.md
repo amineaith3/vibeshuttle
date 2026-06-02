@@ -11,6 +11,7 @@ A modern, responsive, and "vibe-coded" web application for booking premium airpo
 ## ✨ Features
 - **Modern UI/UX:** Premium design featuring vibrant colors, transparent blur effects (glassmorphism), and Phosphor Icons.
 - **Mobile First:** Fully responsive layout that ensures a seamless booking experience on smartphones and tablets.
+- **Security Built-in:** Utilizes `slowapi` for robust IP-based rate limiting (preventing bot spam and protecting the database).
 - **Dynamic Calculation:** JavaScript automatically calculates the total price based on the number of passengers (`10€` per passenger).
 - **FastAPI Integration:** Form data is securely processed via a REST API endpoint (`/api/book`) and stored directly into the database.
 - **Zero Heavy Frameworks:** Achieves a highly interactive experience using only Vanilla JS and CSS variables, keeping the bundle size microscopic.
