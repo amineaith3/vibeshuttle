@@ -37,7 +37,7 @@ van_booking/
 1. **Install Dependencies:**
    Make sure you have Python installed, then run:
    ```bash
-   pip install fastapi uvicorn jinja2
+   pip install -r requirements.txt
    ```
 
 2. **Start the Server:**
