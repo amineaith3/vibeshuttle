@@ -3,11 +3,21 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
+# pyrefly: ignore [missing-import]
+from slowapi import Limiter, _rate_limit_exceeded_handler
+# pyrefly: ignore [missing-import]
+from slowapi.util import get_remote_address
+# pyrefly: ignore [missing-import]
+from slowapi.errors import RateLimitExceeded
 import uvicorn
 import database
 import os
 
+# Rate Limiter
+limiter = Limiter(key_func=get_remote_address)
 app = FastAPI(title="Airport Shuttle Booking")
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 # Ensure DB is initialized
 database.init_db()
@@ -29,11 +39,13 @@ class BookingRequest(BaseModel):
     passengers: int
 
 @app.get("/", response_class=HTMLResponse)
+@limiter.limit("10/minute")
 async def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 @app.post("/api/book")
-async def create_booking(booking: BookingRequest):
+@limiter.limit("3/minute")
+async def create_booking(request: Request, booking: BookingRequest):
     conn = database.get_connection()
     cursor = conn.cursor()
     
